@@ -8,26 +8,26 @@ namespace BBVBank
         {
             int m = 1;
             bool Work = true;
-            Console.WriteLine("--> Открыть счёт" + " \nВнести деньги" + "\nСнять деньги" + "\nПеревести деньги" + "\nВзять кредит" + "\nПомощь" + "\nАвторы");
+            Console.WriteLine("--> Открыть счёт" + " \nВнести деньги" + "\nСнять деньги" + "\nПеревести деньги" + "\nВзять кредит" + "\nПомощь" + "\nАвторы" + "\nБаланс" + "\nВыход" + "\n\n" + "Для выбора нажмите Z");
             while (Work == true)
             {
                 char key = Console.ReadKey(true).KeyChar;
-                if (key == 'w')
+                if (key == 'w' || key == 'W')
                 {
                     m--;
                 }
-                if (key == 's')
+                if (key == 's' || key == 'S')
                 {
                     m++;
                 }
 
-                if (m == 8)
+                if (m == 10)
                 {
                     m = 1;
                 }
                 if (m == 0)
                 {
-                    m = 7;
+                    m = 9;
                 }
                 if (m == 1)
                 {
@@ -87,6 +87,35 @@ namespace BBVBank
                 {
                     Console.WriteLine("Авторы");
                 }
+                if (m == 8)
+                {
+                    Console.WriteLine("--> Баланс ");
+                }
+                else
+                {
+                    Console.WriteLine("Баланс");
+                }
+                if (m == 9)
+                {
+                    Console.WriteLine("--> Выход" + "\n\n" + "Для выбора нажмите Z");
+                }
+                else
+                {
+                    Console.WriteLine("Выход" + "\n\n" + "Для выбора нажмите Z");
+                }
+
+                if (m == 1 && key == 'z' || key == 'Z')
+                {
+                    Account account = new Account();
+                    Account.acc = true;
+                    Console.Clear();
+                    Console.WriteLine("Ваш счёт успешно создан." + "\n\nДля продолжения нажмите любую клавишу...");
+                }
+                if (m == 9 && key == 'z' || key == 'Z')
+                {
+                    Work = false;
+                }
+
             }
         }
     }
