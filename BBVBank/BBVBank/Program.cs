@@ -14,12 +14,20 @@ namespace BBVBank
                 char key = Console.ReadKey(true).KeyChar;
                 if (key == 'w')
                 {
+                    m--;
+                }
+                if (key == 's')
+                {
                     m++;
                 }
-   
+
                 if (m == 8)
                 {
                     m = 1;
+                }
+                if (m == 0)
+                {
+                    m = 7;
                 }
                 if (m == 1)
                 {
