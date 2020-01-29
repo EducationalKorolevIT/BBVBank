@@ -12,11 +12,11 @@ namespace BBVBank
             while (Work == true)
             {
                 char key = Console.ReadKey(true).KeyChar;
-                if (key == 'w' || key == 'W')
+                if (key == 'w' || key == 'W' || key == 'ц' || key == 'Ц')
                 {
                     m--;
                 }
-                if (key == 's' || key == 'S')
+                if (key == 's' || key == 'S' || key == 'ы' || key == 'Ы')
                 {
                     m++;
                 }
@@ -110,6 +110,16 @@ namespace BBVBank
                     Account.acc = true;
                     Console.Clear();
                     Console.WriteLine("Ваш счёт успешно создан." + "\n\nДля продолжения нажмите любую клавишу...");
+                }
+                if (m == 7 && key == 'z' || key == 'Z')
+                {
+                    Console.Clear();
+                    Console.WriteLine("Главный программист"+ "\nШишков Степан"+ "\nПрограммисты"+ "\nКоннов Леонид"+ "\nКислицын Вадим"+ "\n\nДля продолжения нажмите любую клавишу...");
+                }
+                if (m == 6 && key == 'z' || key == 'Z')
+                {
+                    Console.Clear();
+                    Console.WriteLine("Для открытия счёта вам необходимо выбрать пункт Открыть Счёт"+ "\nЕсли вы выбираете пункт Баланс, но при этом у вас нет счёта, то произойдёт ошибка "+ "\n\nДля продолжения нажмите любую клавишу...");
                 }
                 if (m == 9 && key == 'z' || key == 'Z')
                 {
