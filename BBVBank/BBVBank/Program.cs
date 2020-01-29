@@ -12,11 +12,11 @@ namespace BBVBank
             while (Work == true)
             {
                 char key = Console.ReadKey(true).KeyChar;
-                if (key == 'w' || key == 'W')
+                if (key == 'w' || key == 'W' || key == 'ц' || key == 'Ц')
                 {
                     m--;
                 }
-                if (key == 's' || key == 'S')
+                if (key == 's' || key == 'S' || key == 'ы' || key == 'Ы')
                 {
                     m++;
                 }
@@ -104,18 +104,31 @@ namespace BBVBank
                     Console.WriteLine("Выход" + "\n\n" + "Для выбора нажмите Z");
                 }
 
-                if (m == 1 && key == 'z' || key == 'Z')
+                if (m == 1 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
                 {
                     Account account = new Account();
                     Account.acc = true;
                     Console.Clear();
                     Console.WriteLine("Ваш счёт успешно создан." + "\n\nДля продолжения нажмите любую клавишу...");
                 }
-                if (m == 9 && key == 'z' || key == 'Z')
+                if (m == 9 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
                 {
                     Work = false;
                 }
-
+                if (m == 8 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
+                {
+                    if (Account.acc == true)
+                    {
+                        Console.Clear();
+                        Console.WriteLine(Account.money + "\n\nДля продолжения нажмите любую клавишу...");
+                    }
+                    if (Account.acc == false)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Требуется открыть счёт." + "\n\nДля продолжения нажмите любую клавишу...");
+                    }
+                }
+                
             }
         }
     }
