@@ -13,5 +13,7 @@ namespace BBVBank
         public static int snmoney = 0;
         public static int totalmoney = 0;
         public static int totalVNmoney = 0;
+        public static int crmoney = 0;
+        public static int totalcrmoney = 0;
     }
 }

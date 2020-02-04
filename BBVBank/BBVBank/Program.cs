@@ -153,14 +153,14 @@ namespace BBVBank
                             Console.Clear();
                             Console.WriteLine("Требуется открыть счёт." + "\n\nДля продолжения нажмите любую клавишу...");
                         }
-                        if (m == 3 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
+                        if (m == 5 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
                         {
                             if (Account.acc == true)
                             {
                                 Console.Clear();
-                                Console.WriteLine("Сколько денег вы хотите снять?");
-                                Account.snmoney = Convert.ToInt32(Console.ReadLine());
-                                Account.totalmoney = Account.totalVNmoney - Account.snmoney;
+                                Console.WriteLine("На какую сумму вы хотите взять кредит?");
+                                Account.crmoney = Convert.ToInt32(Console.ReadLine());
+                                Account.totalcrmoney = 0 + Account.crmoney;
                                 Console.WriteLine("\n\nДля продолжения нажмите любую клавишу...");
                             }
                             if (Account.acc == false)
@@ -168,9 +168,26 @@ namespace BBVBank
                                 Console.Clear();
                                 Console.WriteLine("Требуется открыть счёт." + "\n\nДля продолжения нажмите любую клавишу...");
                             }
+
+                            if (m == 3 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
+                            {
+                                if (Account.acc == true)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Сколько денег вы хотите снять?");
+                                    Account.snmoney = Convert.ToInt32(Console.ReadLine());
+                                    Account.totalmoney = Account.totalVNmoney - Account.snmoney + Account.totalcrmoney;
+                                    Console.WriteLine("\n\nДля продолжения нажмите любую клавишу...");
+                                }
+                                if (Account.acc == false)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Требуется открыть счёт." + "\n\nДля продолжения нажмите любую клавишу...");
+                                }
+                            }
+
+
                         }
-
-
                     }
                 }
             }
