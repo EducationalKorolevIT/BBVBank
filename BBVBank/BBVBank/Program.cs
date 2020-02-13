@@ -8,7 +8,7 @@ namespace BBVBank
         {
             int m = 1;
             bool Work = true;
-            Console.WriteLine("--> Открыть счёт" + " \nВнести деньги" + "\nСнять деньги" + "\nПеревести деньги" + "\nВзять кредит" + "\nПомощь" + "\nАвторы" + "\nБаланс" + "\nВыход" + "\n\n" + "Для выбора нажмите Z");
+            Console.WriteLine("--> Открыть счёт" + " \nВнести деньги" + "\nСнять деньги" + "\nПеревести деньги" + "\nВзять кредит" + "\nПомощь" + "\nАвторы" + "\nБаланс" + "\nПогасить кредит" + "\nВыход" + "\n\n" + "Для выбора нажмите Z");
             while (Work == true)
             {
                 char key = Console.ReadKey(true).KeyChar;
@@ -21,13 +21,13 @@ namespace BBVBank
                     m++;
                 }
 
-                if (m == 10)
+                if (m == 11)
                 {
                     m = 1;
                 }
                 if (m == 0)
                 {
-                    m = 9;
+                    m = 10;
                 }
                 if (m == 1)
                 {
@@ -97,6 +97,14 @@ namespace BBVBank
                 }
                 if (m == 9)
                 {
+                    Console.WriteLine("--> Погасить кредит ");
+                }
+                else
+                {
+                    Console.WriteLine("Погасить кредит");
+                }
+                if (m == 10)
+                {
                     Console.WriteLine("--> Выход" + "\n\n" + "Для выбора нажмите Z");
                 }
                 else
@@ -122,7 +130,7 @@ namespace BBVBank
                     Console.Clear();
                     Console.WriteLine("Для открытия счёта вам необходимо выбрать пункт Открыть Счёт" + "\nЕсли вы выбираете пункт Баланс, но при этом у вас нет счёта, то произойдёт ошибка " + "\n\nДля продолжения нажмите любую клавишу...");
                 }
-                if (m == 9 && key == 'z' || key == 'Z')
+                if (m == 10 && key == 'z' || key == 'Z')
                 {
                     Work = false;
                 }
@@ -176,7 +184,7 @@ namespace BBVBank
                                     Console.Clear();
                                     Console.WriteLine("Сколько денег вы хотите снять?");
                                     Account.snmoney = Convert.ToInt32(Console.ReadLine());
-                                    Account.totalmoney = Account.totalVNmoney - Account.snmoney + Account.totalcrmoney;
+                                    Account.totalmoney = Account.totalVNmoney - Account.snmoney + Account.totalcrmoney - Account.pogasmoney;
                                     Console.WriteLine("\n\nДля продолжения нажмите любую клавишу...");
                                 }
                                 if (Account.acc == false)
@@ -184,6 +192,13 @@ namespace BBVBank
                                     Console.Clear();
                                     Console.WriteLine("Требуется открыть счёт." + "\n\nДля продолжения нажмите любую клавишу...");
                                 }
+                            }
+                            if (m == 9 && key == 'z' || key == 'Z' || key == 'я' || key == 'Я')
+                            {
+                                Console.Clear();
+                                Console.WriteLine("На какую сумму вы хотите погасить кредит?");
+                                Account.pogasmoney = Convert.ToInt32(Console.ReadLine());
+                              
                             }
 
 
